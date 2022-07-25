@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Phalanx Security Job Title Search - Results</title>
+    <title>Phalanx Security Emp Search - Results</title>
    <link rel="stylesheet" type="text/css" href="groupE-hr-style.css">              
 </head>
 
 <body>
-        <div class="container">
+    <div class="container">
         <?php
         //declare database connection credential variables. We are using the database file hr.sql, so hr used for db. Including credentials in the php file is a security risk in the real world
         $server = "localhost";
@@ -25,17 +25,18 @@
 
         //Setting up the SQL query as a string, including the inputs from the form page. CHANGE THIS TO CHANGE THE SQL QUERY
         //note the single quotes around the field values
-        $job_title_search = $_POST['job_title_search'];
+        $last_name_search = $_POST['last_name_search'];
+        $employee_id_search = $_POST['employee_id_search'];
     
-        $query = "SELECT employees.employee_id, employees.first_name, employees.last_name, employees.job_id, jobs.job_title, employees.salary, AVG(employees.salary)
+        $query = "SELECT employees.employee_id, employees.first_name, employees.last_name, employees.job_id, jobs.job_title, employees.salary
                  FROM employees
                  JOIN jobs ON employees.job_id = jobs.job_id
-                 WHERE job_title =  '$job_title_search'";
+                 WHERE last_name = '$last_name_search' OR employee_id = '$employee_id_search'";
              
-                  
         //to display results from multiple tables at once, the above JOIN clause joins the tables by their common field, the first table's primary key, found in the second table as a foreign key
 
-    
+        //determines how the header for the user's searches will display
+        $searched_by = "SEARCH_METHOD";
 
         //calling mysqli_query() function to run the query and putting the results of the function into a variable named $result
         $result = mysqli_query($connect, $query);
@@ -46,25 +47,21 @@
             mysqli_error($connect));
         }
 
-        /* calling fetch_assoc() function to grab results and the average salary calculation from our SQL query
-        then checking to see how many rows are returned in the user's query, and providing an apporpriate message to indicate the result status.
+        /*check to see how many rows are returned in the user's query, and providing an apporpriate message to indicate the result status.
         If there are 0 records that meet the SELECT statement requirmement, print an error message.
         Otherwise if there are rows in the query results, we begin printing the result title */
-        $avg_salary = "$".number_format(mysqli_fetch_assoc($result)['AVG(employees.salary)'], 2);
-  
-    
         if (mysqli_num_rows($result) == 0) {
             print ("No records found with the query $query");
         }
        else {
            print("
             <header>
-            <h1>List of $job_title_search</h1>
+            <h1>Search Completed By $searched_by</h1>
             </header>" 
             . 
             "<main>
                    <table>
-                        <caption>Average Salary Wage: $avg_salary </caption>
+                   <caption>EMPLOYEE SEARCH RESULT</caption>
                 <thead>
                     <tr><th>EMP ID</th>
                         <th>First Name</th>
@@ -77,7 +74,6 @@
         /* next, we print the table rows using the fetch_assoc() function which puts the results into an associative array. 
         This way, we can use a while loop to loop through information from each desired column until there is no more data to display.
         Note that the concantenation symbol . is included */
-       $row = mysqli_fetch_assoc($result);
         while ($row = mysqli_fetch_assoc($result)) 
         {
             //printing each column in the header row of the results table, then printing column of each row of the results table
@@ -97,19 +93,15 @@
 
         //printing the end tag for the table only after the 'while' loop printing all the rows has finished
         print("</main></table>");
-
-       }
-        
+       } 
        //close the connection
         mysqli_close($connect);
-
         ?>
-
-         <br /> 
-         <footer class="fctr">
-          <p><a href="groupE-hr-job-title.html" class="white">Back to Search page</a></p>
+          <br />  
+          <footer class="fctr">
+          <p><a href="groupE-hr-emp-search.html" class="white">Back to Search page</a></p>
           <p class="white">&copy;2022 by Group E</p>
         </footer>
       </div>
-</body>
+    </body>
 </html>

@@ -1,0 +1,142 @@
+﻿body {
+    background-color: #F469D9;
+    font-family: 'Lucida Sans', 'Microsoft Sans Serif', sans-serif;
+}
+    .container {                                                            /* CLASS 1: Container that centers all content */
+        background-color: #FFFFFF;
+        margin: auto;
+        padding: 20px;
+        width: 1000px;
+    }
+        .highlighter {                                                        /* CLASS 2: Highlights */
+            background-color: yellow;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+header {
+    background-color: #953AF2;
+    font-size: 25px;
+    color: #000000;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 18px;
+}
+
+ul {
+    list-style-type: none;
+    padding: inherit;
+    border: 1px solid black;
+}
+
+li {
+    border: none;
+    padding: 5px;
+}
+
+nav {
+    width: 20%;
+    margin: 5px;
+    float: left;
+}
+
+a {
+    text-decoration: none;
+    color: #C21A3E;
+}
+    a.white, p.white {              
+        color: white;
+    }
+
+img {
+    border: 5px solid #B40092;
+    width: fit-content;
+}
+
+h1 {
+    color: #5705AA;
+    font-size: 40px;
+}
+
+    h2.dark {
+        color: #C21A3E;
+    }
+
+        h2.darker {
+            color: #9C0B2A;
+        }
+
+            h3.darkest {
+                color: #78001A;
+            }
+
+table, th, td {
+    border: 2px #CCC inset;
+    background-color: #FFF;
+}
+
+thead {
+    background-color: #FFF;
+    color: #000;
+}
+
+tbody {
+    background-color: #FFF;
+    color: #000;
+}
+
+tfoot {
+    font-size: 10px;
+    color: #000;
+    background-color: #CCC;
+}
+
+caption {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #000;
+    background-color: #FFF;
+    border: 2px #000 inset;
+}
+
+figure {
+    margin: 5px;
+}
+
+button {
+    background-color: #CCCCCC;
+    color: #000000;
+    font-size: 16px;
+}
+
+
+legend {
+    background-color: #CCCCCC;
+    color: #000000;
+    padding: 5px;
+}
+
+label {
+    display: block;
+    font-family: 'Courier New', 'Consolas', monospace;
+}
+
+footer {
+    clear: both;
+    padding: 10px;
+}
+
+    .fctr {                                                            /* CLASS 3: colors footer and removes floats of other page elements */
+        text-align: center;
+        background-color: #1809AF;
+        padding: 5px;
+    }
+
+

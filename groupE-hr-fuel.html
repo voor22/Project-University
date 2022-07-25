@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!--Name: Group E
+            Class Section: CTI.110.0005
+    -->
+    <meta charset="utf-8" />
+    <title>Phalanx Security LLP - Fuel Calculation Form</title>
+    <link rel="stylesheet" type="text/css" href="groupE-hr-style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fuel Calculation Form</h1>
+        </header>
+        <br>
+        <main>
+            <form action="groupE-hr-fuel.php" method="post">
+                <fieldset>
+                    <label for="avg_mpg">Please provide the average MPG of your car:</label>
+                    <input type="number" id="avg_mpg" name="avg_mpg" min="0" value="0" required>
+                    <br />
+                    <label for="avg_mpg">Please enter the expected cost per gallon of gas:</label>
+                    <input type="number" id="gas_cost" name="gas_cost"  min="0" value="0" required>
+                    <br />
+                    <label for="avg_mpg">Please enter the expected length of your trip (in miles):</label>
+                    <input type="number" id="trip_length" name="trip_length" min="0" value="0" required>
+                </fieldset>
+                <br />
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+        <br />
+        <footer class="fctr">
+            <a class="white" href="groupE-hr-portal.html">Back to Main Page</a>
+            <p class="white">&copy; Copyright 2022 Group E</p>
+        </footer>
+    </div> <!-- closes container -->
+</body>
+</html>
